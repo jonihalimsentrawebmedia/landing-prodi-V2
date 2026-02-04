@@ -1,0 +1,73 @@
+'use client'
+
+import { UseGetNews } from '@/app/home/hooks'
+import Image from 'next/image'
+import { clsx } from 'clsx'
+import { format } from 'date-fns'
+import { TitleUnderline } from '@/components/common/titleUnderline'
+import { TopNewsSkeleton } from '@/app/home/component/skeleton'
+import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
+
+export const TopNewsLanding = () => {
+  const { news, loading } = UseGetNews({
+    page: '1',
+    limit: '6',
+  })
+
+  if (loading) return <TopNewsSkeleton />
+
+  return (
+    <div className={'w-full bg-gray-100 max-w-[1920px] mx-auto pb-5'}>
+      <div className="container flex flex-col gap-5 py-5">
+        <TitleUnderline text={'Berita Program Studi'} className={'text-center'} />
+        <div className={'grid grid-cols-4 container gap-4'}>
+          {news?.map((row, index) => (
+            <div
+              key={index}
+              className={clsx(
+                index % 3 === 1 ? 'col-span-2' : 'col-span-1',
+                'bg-white shadow rounded-md overflow-hidden group hover:bg-primary-foreground'
+              )}
+            >
+              {index < 3 && (
+                <div className={'w-full h-[240px] relative overflow-hidden'}>
+                  <Image
+                    src={row?.gambar}
+                    alt={row?.judul}
+                    className={
+                      'w-full h-[240px] object-cover group-hover:scale-110 transition-all duration-300 cursor-pointer'
+                    }
+                    width={330}
+                    height={240}
+                  />
+                </div>
+              )}
+
+              <div className={'p-2 flex flex-col gap-1.5'}>
+                <p className="font-semibold line-clamp-2 group-hover:text-primary">{row?.judul}</p>
+                <p className="text-gray-500 text-xs font-semibold">
+                  {row?.published_at ? format(row?.published_at, 'dd MMM yyyy') : '-'}
+                </p>
+                <div
+                  dangerouslySetInnerHTML={{ __html: row?.isi_berita }}
+                  className={'line-clamp-3 text-sm'}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex items-center justify-end">
+          <Link
+            href={'/information/news'}
+            className={'flex items-center gap-1 font-semibold text-primary'}
+          >
+            Lihat Berita Lainnya
+            <ArrowRight className={'size-4'} />
+          </Link>
+        </div>
+      </div>
+    </div>
+  )
+}

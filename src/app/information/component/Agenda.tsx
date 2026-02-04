@@ -1,0 +1,65 @@
+'use client'
+
+import { TitleUnderline } from '@/components/common/titleUnderline'
+import { UseGetAgenda } from '@/app/home/hooks'
+import { format } from 'date-fns'
+import { IoLocationSharp } from 'react-icons/io5'
+import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
+import { AgendaInformationSkeleton } from '@/app/information/component/skeleton'
+
+export const AgendaInformation = () => {
+  const { agenda, loading } = UseGetAgenda({
+    page: '1',
+    limit: '4',
+  })
+
+  if (loading) return <AgendaInformationSkeleton />
+
+  return (
+    <>
+      <div className={'py-10 bg-[#F7F7F7] w-full mx-auto max-w-[1920px]'}>
+        <div className="container">
+          <TitleUnderline text={'Agenda Program Studi'} className={'text-center'} />
+
+          <div className="grid grid-cols-4 mt-6 gap-5">
+            {agenda.map((row, index) => (
+              <div
+                key={index}
+                className={
+                  'flex items-center gap-2 bg-white shadow p-2 rounded border-l-4 border-l-primary rounded-l-none'
+                }
+              >
+                <div className={'text-center w-18 pr-1.5 border-r border-r-primary'}>
+                  <p className={'font-semibold text-xl text-primary'}>
+                    {row?.waktu_mulai ? format(row?.waktu_mulai, 'dd') : ''}
+                  </p>
+                  <p className={'text-primary'}>
+                    {row?.waktu_mulai ? format(row?.waktu_mulai, 'MMM yy') : ''}
+                  </p>
+                </div>
+                <div className={'flex flex-col gap-1.5 w-full'}>
+                  <p className={'line-clamp-2'}>{row?.judul}</p>
+                  <p className={'flex items-center gap-1.5 text-sm'}>
+                    <IoLocationSharp className={'size-4 text-primary'} />
+                    {row?.lokasi_kegiatan}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex items-center justify-end mt-5">
+            <Link
+              href={'/information/news'}
+              className={'flex items-center gap-1 font-semibold text-primary'}
+            >
+              Lihat Agenda Lainnya
+              <ArrowRight className={'size-4'} />
+            </Link>
+          </div>
+        </div>
+      </div>
+    </>
+  )
+}
