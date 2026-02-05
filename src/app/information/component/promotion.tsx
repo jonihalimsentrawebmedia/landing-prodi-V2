@@ -7,12 +7,16 @@ import { FaRegCalendarAlt } from '@react-icons/all-files/fa/FaRegCalendarAlt'
 import { format } from 'date-fns'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
+import { PromotionInformationSkeleton } from '@/app/information/component/skeleton'
 
 export const PromotionInformation = () => {
   const { promotion, loading } = UseGetPromotion({
     page: '1',
     limit: '4',
   })
+
+  if (loading) return <PromotionInformationSkeleton />
+
   return (
     <>
       <div className="bg-[#F5F5F5] w-full max-w-[1920px] mx-auto">
@@ -29,14 +33,14 @@ export const PromotionInformation = () => {
           <div className="container">
             <TitleUnderline text={'Promosi'} className={'text-center text-2xl'} />
 
-            <div className="grid grid-cols-2 gap-5 mt-8">
+            <div className="grid lg:grid-cols-2 gap-5 mt-8">
               {promotion?.map((row, k) => (
-                <div key={k} className={'p-4 bg-white rounded flex items-center gap-2.5'}>
+                <div key={k} className={'p-4 bg-white rounded flex flex-col lg:flex-row items-center gap-2.5'}>
                   <div className={'min-w-[233px] w-full h-[175px] bg-gray-100 relative shadow'}>
                     <Image
                       src={row?.gambar}
                       alt={row.judul}
-                      className={'object-contain w-[233px] h-[175px]'}
+                      className={'object-contain w-[233px] mx-auto h-[175px]'}
                       width={233}
                       height={175}
                     />
@@ -58,7 +62,7 @@ export const PromotionInformation = () => {
 
             <div className="flex items-center justify-end mt-5">
               <Link
-                href={'/information/news'}
+                href={'/information/promotion'}
                 className={'flex items-center gap-1 font-semibold text-primary'}
               >
                 Lihat Promosi Lainnya

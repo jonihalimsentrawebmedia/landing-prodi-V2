@@ -26,7 +26,7 @@ export const JumbotronTitle = (props: Props) => {
           <div className="container h-full flex items-center">
             <TitleUnderline
               text={title}
-              className={'decoration-yellow-600 text-white text-4xl font-semibold'}
+              className={'decoration-yellow-600 text-white text-2xl lg:text-4xl font-semibold'}
             />
           </div>
         </div>

@@ -23,7 +23,7 @@ export const BaseLayout = (props: Props) => {
             position={'top-right'}
             richColors
           />
-          {children}
+          <div className={'pt-[56px] lg:pt-[80px]'}>{children}</div>
           <FooterLayout />
         </StateProvider>
       </Providers>

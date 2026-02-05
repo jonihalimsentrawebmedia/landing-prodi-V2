@@ -18,12 +18,12 @@ export const CardNewsItem = (props: Props) => {
           'bg-white shadow rounded-md overflow-hidden group hover:bg-primary-foreground'
         )}
       >
-        <div className={'w-full h-[240px] relative overflow-hidden'}>
+        <div className={'w-full h-[200px] lg:h-[240px] relative overflow-hidden'}>
           <Image
             src={gambar}
             alt={judul}
             className={
-              'w-full h-[240px] object-cover group-hover:scale-110 transition-all duration-300 cursor-pointer'
+              'w-full h-[200px] lg:h-[240px] object-cover group-hover:scale-110 transition-all duration-300 cursor-pointer'
             }
             width={330}
             height={240}

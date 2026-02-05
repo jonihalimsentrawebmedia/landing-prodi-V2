@@ -7,16 +7,21 @@ import { MdEmail, MdFax } from 'react-icons/md'
 import { IoLocationSharp } from 'react-icons/io5'
 import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
 import Link from 'next/link'
+import { FooterSkeleton } from '@/components/layout/footer/skeleton'
 
 export const FooterLayout = () => {
   const [{ profile }] = UseStateContext()
   const detail = profile?.SatuanOrganisasi
 
+  const loading = !profile
+
+  if (loading) return <FooterSkeleton />
+
   return (
     <>
-      <div className={'w-full bg-primary p-5 max-w-[1920px] mx-auto'}>
-        <div className="container items-start justify-between flex gap-5">
-          <div className={'flex flex-col gap-2'}>
+      <div className={'w-full bg-primary py-2 lg:py-5 lg:p-5 max-w-[1920px] mx-auto'}>
+        <div className="container items-start justify-between flex flex-col lg:flex-row gap-5">
+          <div className={'flex items-center lg:items-start lg:flex-col gap-2'}>
             {detail?.logo && (
               <Image
                 src={detail?.logo}
@@ -26,12 +31,12 @@ export const FooterLayout = () => {
                 className={'rounded-full size-10'}
               />
             )}
-            <p className={'text-2xl font-semibold text-white'}>{detail?.singkatan_universitas}</p>
+            <p className={'lg:text-2xl font-semibold text-white'}>{detail?.singkatan_universitas}</p>
           </div>
 
           <div>
-            <h3 className={'text-xl text-white border-l-4 border-yellow-500 pl-2'}>Kontak</h3>
-            <ul className={'text-white mt-4 flex flex-col gap-2'}>
+            <h3 className={'lg:text-xl text-white border-l-4 border-yellow-500 pl-2'}>Kontak</h3>
+            <ul className={'text-sm lg:text-base text-white mt-4 flex flex-col gap-2'}>
               <Link
                 target="_blank"
                 href={`mailto:${detail?.email}`}
@@ -54,17 +59,18 @@ export const FooterLayout = () => {
               </li>
             </ul>
           </div>
-
+          
           <div>
-            <h3 className={'text-xl text-white border-l-4 border-yellow-500 pl-2'}>Alamat</h3>
-            <p className="flex items-start gap-2 max-w-[265px] text-white mt-4">
+            <h3 className={'lg:text-xl text-white border-l-4 border-yellow-500 pl-2'}>Alamat</h3>
+            <p className="text-xs lg:text-base flex items-start gap-2 max-w-[265px] text-white mt-4">
               <IoLocationSharp className={'size-4 min-w-4'} />
               {detail?.alamat ?? ''}
             </p>
           </div>
-          <div>
-            <h3 className={'text-xl text-white border-l-4 border-yellow-500 pl-2'}>Sosial Media</h3>
-            <ul className={'flex gap-2 mt-4'}>
+          
+          <div className={'flex items-center gap-5 lg:flex-col gap-2'}>
+            <h3 className={'lg:text-xl text-white border-l-4 border-yellow-500 pl-2'}>Sosial Media</h3>
+            <ul className={'flex gap-2 lg:mt-4'}>
               <Link target="_blank" href={detail?.facebook ?? '#'} className={'text-white'}>
                 <FaFacebook className={'size-6'} />
               </Link>

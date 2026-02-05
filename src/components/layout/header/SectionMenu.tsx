@@ -22,7 +22,7 @@ export const SectionMenu = () => {
   }, [profile])
 
   return (
-    <ul className={'flex gap-5 items-center text-white text-sm'}>
+    <ul className={'hidden lg:flex gap-5 items-center text-white text-sm'}>
       {MenuHeader?.map((item, index) => (
         <Link href={item?.link} key={index}>
           <li

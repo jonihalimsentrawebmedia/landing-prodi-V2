@@ -1,7 +1,6 @@
 'use client'
 
 import { UseGetContactUsProfile } from '../hooks/index'
-import { Card, CardContent } from '@/components/ui/card'
 import { HiMapPin } from 'react-icons/hi2'
 import { MdMail } from 'react-icons/md'
 import { FaPhone } from 'react-icons/fa6'
@@ -37,7 +36,7 @@ export const SectionContactUsProfile = () => {
             </div>
             <iframe src={contactUse?.link_google_map} className={'w-full h-[400px] rounded'} />
             <div className="flex items-center mt-5 justify-start">
-              <Link href={'/profile/gallery'}>
+              <Link href={'/about/gallery'}>
                 <Button variant={'outline'} className={'rounded-full border border-primary'}>
                   <ArrowLeft className={'size-4'} />
                   Galeri

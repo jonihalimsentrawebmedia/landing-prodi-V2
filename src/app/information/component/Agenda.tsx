@@ -22,9 +22,10 @@ export const AgendaInformation = () => {
         <div className="container">
           <TitleUnderline text={'Agenda Program Studi'} className={'text-center'} />
 
-          <div className="grid grid-cols-4 mt-6 gap-5">
+          <div className="grid lg:grid-cols-4 mt-6 gap-5">
             {agenda.map((row, index) => (
-              <div
+              <Link
+                href={`/information/agenda/${row?.slug}`}
                 key={index}
                 className={
                   'flex items-center gap-2 bg-white shadow p-2 rounded border-l-4 border-l-primary rounded-l-none'
@@ -45,13 +46,13 @@ export const AgendaInformation = () => {
                     {row?.lokasi_kegiatan}
                   </p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
           <div className="flex items-center justify-end mt-5">
             <Link
-              href={'/information/news'}
+              href={'/information/agenda'}
               className={'flex items-center gap-1 font-semibold text-primary'}
             >
               Lihat Agenda Lainnya

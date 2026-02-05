@@ -18,7 +18,7 @@ export const WeAreLecturer = () => {
         <Carousel className={'mt-5'} opts={{ loop: true, align: 'center' }}>
           <CarouselContent>
             {Array.from({ length: 10 }, (_, i) => (
-              <CarouselItem key={i} className={'basis-1/6'}>
+              <CarouselItem key={i} className={'lg:basis-1/6'}>
                 <div
                   className={`
                     flex flex-col gap-2 items-center justify-center w-full h-full p-5 bg-primary-foreground border rounded-md
@@ -38,17 +38,17 @@ export const WeAreLecturer = () => {
           </CarouselContent>
           <div
             className={
-              'absolute bg-linear-to-r from-transparent to-primary w-[80px] h-full top-0 right-0 flex justify-center'
+              'absolute bg-linear-to-r from-transparent to-primary w-[40px] lg:w-[80px] h-full top-0 right-0 flex justify-center'
             }
           >
-            <CarouselNext className={'right-5 border-none hover:text-white text-white !bg-transparent'} />
+            <CarouselNext className={'right-1 border-none hover:text-white text-white !bg-transparent'} />
           </div>
           <div
             className={
-              'absolute bg-linear-to-l from-transparent to-primary w-[80px] h-full top-0 left-0 flex justify-center'
+              'absolute bg-linear-to-l from-transparent to-primary w-[40px] lg:w-[80px] h-full top-0 left-0 flex justify-center'
             }
           >
-            <CarouselPrevious className={'left-5 border-none hover:text-white text-white !bg-transparent'} />
+            <CarouselPrevious className={'left-1 border-none hover:text-white text-white !bg-transparent'} />
           </div>
         </Carousel>
       </div>

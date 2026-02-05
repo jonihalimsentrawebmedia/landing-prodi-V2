@@ -106,7 +106,7 @@ export const UseGetNews = (props?: INewsProps) => {
 }
 
 export const UseGetAgenda = (props?: IAgendaProps) => {
-  const { page, limit, search, year } = props ?? {}
+  const { page, limit, search, year,no_includes_id } = props ?? {}
 
   const [agenda, setAgenda] = useState<IAgenda[]>([])
   const [meta, setMeta] = useState<Meta>()
@@ -116,6 +116,7 @@ export const UseGetAgenda = (props?: IAgendaProps) => {
   if (limit) ParamsSearch.append('limit', limit)
   if (search) ParamsSearch.append('search', search)
   if (year) ParamsSearch.append('tahun', year)
+  if (no_includes_id) ParamsSearch.append('no-include-id', no_includes_id)
 
   const { data, isLoading, isFetching } = useQuery({
     queryKey: ['agenda', ParamsSearch.toString()],
@@ -136,7 +137,7 @@ export const UseGetAgenda = (props?: IAgendaProps) => {
 }
 
 export const UseGetAnnouncement = (props?: IAnnouncementProps) => {
-  const { page, limit, search, year, id_category } = props ?? {}
+  const { page, limit, search, year, id_category, no_includes_id } = props ?? {}
 
   const [announcement, setAnnouncement] = useState<IAnnouncement[]>([])
   const [meta, setMeta] = useState<Meta>()
@@ -147,6 +148,7 @@ export const UseGetAnnouncement = (props?: IAnnouncementProps) => {
   if (search) ParamsSearch.append('search', search)
   if (year) ParamsSearch.append('tahun', year)
   if (id_category) ParamsSearch.append('id-kategori-pengumuman', id_category)
+  if (no_includes_id) ParamsSearch.append('no-include-id', no_includes_id)
 
   const { data, isLoading, isFetching } = useQuery({
     queryKey: ['announcement', ParamsSearch.toString()],

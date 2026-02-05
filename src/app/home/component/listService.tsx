@@ -23,11 +23,11 @@ const ListService = () => {
           </div>
         </>
       ) : (
-        <div className="flex gap-4 w-full relative py-4 container">
-          <div className="rounded-full bg-primary whitespace-nowrap text-white px-5 py-1.5 text-xs lg:text-sm flex items-center">
+        <div className="flex flex-col lg:flex-row gap-2 lg:gap-4 w-full relative py-4 container">
+          <div className="rounded-full w-fit bg-primary whitespace-nowrap text-white px-3 py-1 lg:px-5 lg:py-1.5 text-xs lg:text-sm flex items-center">
             {profile?.domain}
           </div>
-          <div className="w-[2px] h-8 lg:h-11 bg-[#C8C8C8]" />
+          <div className="w-[2px] h-8 lg:h-11 bg-[#C8C8C8] hidden lg:block" />
           <div className="flex gap-4 items-center w-full overflow-hidden">
             <ArrowLeft className="text-primary hidden lg:block" />
             <div className="lg:flex w-fit gap-4 flex overflow-x-auto text-xs">
@@ -40,8 +40,9 @@ const ListService = () => {
                     key={k}
                     className={`rounded-full w-full
                   flex gap-2 border items-center
+                  p-1 px-3 mb-2 lg:mb-0 text-xs lg:text-sm
                   text-primary bg-primary/20 border-primary
-                  whitespace-nowrap  px-4 py-2 font-semibold
+                  whitespace-nowrap lg:px-4 lg:py-2 font-semibold
                   `}
                   >
                     {row?.nama_layanan}

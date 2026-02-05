@@ -1,13 +1,22 @@
 'use client'
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
 import { ContactSection } from '@/app/contact/components/contactSection'
 import { RegistrationSection } from '@/app/contact/components/registrationSection'
+import { ContactSectionSkeleton } from '@/app/contact/components/skeleton'
 
 export const TabsContactRegistration = () => {
   const tabsData = [
-    { label: 'Kontak', value: 'contact', element: <ContactSection /> },
+    {
+      label: 'Kontak',
+      value: 'contact',
+      element: (
+        <Suspense fallback={<ContactSectionSkeleton />}>
+          <ContactSection />
+        </Suspense>
+      ),
+    },
     { label: 'Pendaftaran', value: 'register', element: <RegistrationSection /> },
   ]
 
@@ -15,16 +24,27 @@ export const TabsContactRegistration = () => {
 
   return (
     <>
-      <Tabs value={value} onValueChange={setValue} className={'w-full container bg-white py-5'}>
-        <TabsList className={'w-full rounded-none'}>
+      <Tabs
+        value={value}
+        onValueChange={setValue}
+        className={'w-full container bg-white py-5 border-none'}
+      >
+        <TabsList className={'w-full rounded-none bg-white p-0'}>
           {tabsData.map((tab, k) => (
-            <TabsTrigger key={k} value={tab?.value}>
+            <TabsTrigger
+              key={k}
+              value={tab?.value}
+              className={`rounded-none !border-x-0 !shadow-none data-[state=active]:bg-primary-foreground
+              border-b-2 border-b-gray-200 data-[state=active]:border-b-primary
+              data-[state=active]:text-primary
+              `}
+            >
               {tab?.label}
             </TabsTrigger>
           ))}
         </TabsList>
         {tabsData.map((tab, k) => (
-          <TabsContent key={k} value={tab?.value}>
+          <TabsContent className={'p-0'} key={k} value={tab?.value}>
             {tab?.element}
           </TabsContent>
         ))}

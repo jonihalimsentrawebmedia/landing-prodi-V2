@@ -64,6 +64,7 @@ export interface IAgendaProps {
   limit?: string
   search?: string
   year?: string
+  no_includes_id?: string
 }
 
 export interface IAgenda {
@@ -91,11 +92,12 @@ export interface IAgenda {
 }
 
 export type IAnnouncementProps = {
-  page: string
-  limit: string
+  page?: string
+  limit?: string
   search?: string
   year?: string
   id_category?: string
+  no_includes_id?: string
 }
 
 export interface IAnnouncement {

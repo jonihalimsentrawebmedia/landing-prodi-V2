@@ -36,19 +36,20 @@ export const AnnouncementInformation = () => {
 
             <div className="lg:grid grid-cols-4 gap-5 mt-6">
               {announcement?.map((row, index) => (
-                <div
-                  key={index}
-                  className={'text-white flex flex-col gap-2.5 border-b-2 border-b-white pb-2.5'}
-                >
-                  <p className={'line-clamp-3'}>{row?.judul_pengumuman}</p>
-                  <p>{row?.published_at ? format(row?.published_at, 'dd MMM yyyy') : '-'}</p>
-                </div>
+                <Link href={`/information/announcement/${row?.slug}`} key={index}>
+                  <div
+                    className={'text-white flex flex-col gap-2.5 border-b-2 border-b-white pb-2.5'}
+                  >
+                    <p className={'line-clamp-3'}>{row?.judul_pengumuman}</p>
+                    <p>{row?.published_at ? format(row?.published_at, 'dd MMM yyyy') : '-'}</p>
+                  </div>
+                </Link>
               ))}
             </div>
-            
+
             <div className="flex items-center justify-end mt-5">
               <Link
-                href={'/information/news'}
+                href={'/information/announcement'}
                 className={'flex items-center gap-1 font-semibold text-white'}
               >
                 Lihat Pengumuman Lainnya

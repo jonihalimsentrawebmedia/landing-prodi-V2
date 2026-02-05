@@ -1,12 +1,6 @@
-import {
-  IconEmail,
-  IconFacebook,
-  IconInstagram,
-  IconPhone,
-  IconX,
-  IconYoutube,
-} from '@/components/common/icons'
 import { UseStateContext } from '@/contexts'
+import { Card, CardContent } from '@/components/ui/card'
+import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
 
 export const ContactDetail = () => {
   const [{ profile }] = UseStateContext()
@@ -14,59 +8,58 @@ export const ContactDetail = () => {
   return (
     <>
       <div className={'w-full lg:border-l border-gray-400 lg:pl-5'}>
-        <p className="text-primary text-xl font-semibold">Kontak Universitas</p>
-        <div className="flex flex-col lg:grid grid-cols-2 gap-5 mt-2.5">
-          <div className={'p-2.5 bg-white rounded-lg shadow flex gap-2.5 items-center'}>
-            <div className="rounded-full p-2.5 bg-[#F5FAFF] w-fit">
-              <IconPhone />
+        <p className="text-3xl text-primary font-semibold">Kontak Kami</p>
+        <Card className={'p-2 mt-2 rounded-md drop-shadow-none shadow-none'}>
+          <CardContent className={'p-2'}>
+            <p className="text-primary font-semibold text-xl">Universitas</p>
+            <div className="grid lg:grid-cols-[12rem_1fr] gap-2.5 mt-2">
+              <p>Telepon</p>
+              <p>: {profile?.telepon_universitas}</p>
+              <p>Email</p>
+              <p>: {profile?.email_universitas}</p>
             </div>
-            <div className={'flex flex-col gap-1'}>
-              <p className="text-xs text-gray-500">Telepon</p>
-              <p className={'font-semibold'}>{profile?.telepon_universitas}</p>
-            </div>
-          </div>
-          <div className={'p-2.5 bg-white rounded-lg shadow flex gap-2.5 items-center'}>
-            <div className="rounded-full p-2.5 bg-[#F5FAFF] w-fit">
-              <IconEmail />
-            </div>
-            <div className={'flex flex-col gap-1'}>
-              <p className="text-xs text-gray-500">Email</p>
-              <p className={'font-semibold'}>{profile?.email_universitas}</p>
-            </div>
-          </div>
-        </div>
+          </CardContent>
+        </Card>
 
-        <p className="text-primary text-xl font-semibold mt-5">Kontak Program Studi</p>
-        <div className="flex flex-col lg:grid grid-cols-2 gap-5 mt-2.5">
-          <div className={'p-2.5 bg-white rounded-lg shadow flex gap-2.5 items-center'}>
-            <div className="rounded-full p-2.5 bg-[#F5FAFF] w-fit">
-              <IconPhone />
+        <Card className={'p-2 mt-2 rounded-md drop-shadow-none shadow-none'}>
+          <CardContent className={'p-2'}>
+            <p className="text-primary font-semibold text-xl">Program Studi</p>
+            <div className="grid lg:grid-cols-[12rem_1fr] gap-2.5 mt-2">
+              <p>Telepon</p>
+              <p>: {profile?.SatuanOrganisasi?.telepon}</p>
+              <p>Email</p>
+              <p>: {profile?.SatuanOrganisasi?.email}</p>
             </div>
-            <div className={'flex flex-col gap-1'}>
-              <p className="text-xs text-gray-500">Telepon</p>
-              <p className={'font-semibold'}>{profile?.SatuanOrganisasi?.telepon}</p>
-            </div>
-          </div>
-          <div className={'p-2.5 bg-white rounded-lg shadow flex gap-2.5 items-center'}>
-            <div className="rounded-full p-2.5 bg-[#F5FAFF] w-fit">
-              <IconEmail />
-            </div>
-            <div className={'flex flex-col gap-1'}>
-              <p className="text-xs text-gray-500">Email</p>
-              <p className={'font-semibold'}>{profile?.SatuanOrganisasi?.email}</p>
-            </div>
-          </div>
-        </div>
+          </CardContent>
+        </Card>
 
-        <div className={'mt-5'}>
-          <p className="text-primary lg:text-xl font-semibold">Sosial Media</p>
-          <div className={'p-4 bg-white rounded-lg shadow flex gap-5 items-center mt-2.5'}>
-            <IconInstagram />
-            <IconFacebook />
-            <IconX />
-            <IconYoutube />
-          </div>
-        </div>
+        <Card className={'p-2 mt-2 rounded-md drop-shadow-none shadow-none'}>
+          <CardContent className={'p-2'}>
+            <p className="text-primary font-semibold text-xl">Sosial Media</p>
+            <div className="grid lg:grid-cols-[12rem_1fr] gap-4 mt-2">
+              <p className={'flex items-center gap-1'}>
+                <FaFacebook className={'text-primary size-5'} />
+                Facebook
+              </p>
+              <p>: {profile?.SatuanOrganisasi?.facebook}</p>
+              <p className={'flex items-center gap-1'}>
+                <FaInstagram className={'size-5 text-primary'} />
+                Instagram
+              </p>
+              <p>: {profile?.SatuanOrganisasi?.instagram}</p>
+              <p className={'flex items-center gap-1'}>
+                <FaTwitter className={'size-5 text-primary'} />
+                Twitter
+              </p>
+              <p>: {profile?.SatuanOrganisasi?.twitter}</p>
+              <p className={'flex items-center gap-1'}>
+                <FaYoutube className={'size-5 text-primary'} />
+                Youtube
+              </p>
+              <p>: {profile?.SatuanOrganisasi?.youtube}</p>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </>
   )

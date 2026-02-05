@@ -6,7 +6,7 @@ import { Suspense } from 'react'
 
 const CurriculumPage = async () => {
   const curriculum = await FetchResAPI('/public-prodi/kurikulum?page=0&limit=0')
-  const listCurriculum: ICurriculum[] = curriculum.data
+  const listCurriculum: ICurriculum[] = curriculum?.data
 
   return (
     <>

@@ -25,9 +25,9 @@ export const AboutStudyProgram = () => {
             className={'text-start'}
           />
 
-          <div className="flex items-start gap-x-5 mt-5 w-full">
+          <div className="flex flex-col lg:flex-row items-start gap-x-5 mt-5 w-full">
             <Carousel
-              className={'w-[442px] lg:min-w-[442px]'}
+              className={'w-full lg:w-[442px] lg:min-w-[442px]'}
               opts={{ loop: true }}
               plugins={[
                 Autoplay({
@@ -43,20 +43,24 @@ export const AboutStudyProgram = () => {
                       width={442}
                       height={265}
                       alt={'gambar'}
-                      className={'w-[442px] h-[265px] object-cover rounded-md'}
+                      className={
+                        'w-full lg:w-[442px] h-[200px] lg:h-[265px] object-cover rounded-md'
+                      }
                     />
                   </CarouselItem>
                 ))}
               </CarouselContent>
             </Carousel>
 
-            <div className={'flex flex-col gap-5 w-full justify-between h-full'}>
+            <div className={'mt-2.5 lg:mt-0 flex flex-col gap-5 w-full justify-between h-full'}>
               <div
                 dangerouslySetInnerHTML={{ __html: aboutProdi?.isi_konten ?? '' }}
-                className={'text-justify'}
+                className={'text-justify html-class'}
               />
               <Link
-                className={'text-primary font-semibold flex items-center gap-1.5'}
+                className={
+                  'text-primary font-semibold flex items-center gap-1.5 text-sm lg:text-base'
+                }
                 href={'/profile'}
               >
                 Selengkapnya Tentang Prodi

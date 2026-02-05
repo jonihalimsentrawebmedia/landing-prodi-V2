@@ -28,97 +28,110 @@ export const AgendaAnnouncement = () => {
 
   return (
     <>
-      <div className={'relative mx-auto w-full max-w-[1920px] h-[470px]'}>
-        <div
-          className={
-            'bg-linear-to-t from-primary to-[#24429799] w-full h-full flex items-center absolute z-10 top-0 left-0'
-          }
-        >
-          <div className="container flex items-start gap-x-8 relative">
-            <div className="w-5/12 p-4 bg-blue-50 flex flex-col gap-5">
-              <p className="pl-2 ml-2 border-l-2 border-primary text-primary text-2xl">Agenda</p>
-              <ul className="pl-2">
-                {agenda?.map((row, index) => (
-                  <li key={index} className="py-1 flex items-center gap-1.5">
+      <div className={'relative mx-auto w-full max-w-[1920px]'}>
+        <div className="absolute bg-linear-to-t from-primary to-[#24429799] w-full h-full flex items-center z-20 top-0 left-0" />
+        <div className={`w-full h-full z-10 top-0 left-0 absolute`}>
+          <Carousel
+            opts={{ loop: true }}
+            plugins={[
+              Fade(),
+              Autoplay({
+                delay: 5000,
+                stopOnInteraction: false,
+                playOnInit: true,
+              }),
+            ]}
+          >
+            <CarouselContent>
+              {sliderLanding
+                ?.filter((row) => row?.is_bawah)
+                .map((item, index) => (
+                  <CarouselItem key={index}>
+                    <div className={'w-full max-w-[1920px] h-full max-h-[470px]'}>
+                      <Image
+                        src={item?.gambar_url}
+                        alt={'slider'}
+                        className={'w-full h-[470px] object-cover'}
+                        width={1440}
+                        height={470}
+                      />
+                    </div>
+                  </CarouselItem>
+                ))}
+            </CarouselContent>
+          </Carousel>
+        </div>
+
+        <div className="container z-30 flex flex-col lg:flex-row items-center gap-x-8 relative lg:h-[480px] py-5 lg:py-0 gap-5">
+          <div className="w-full lg:w-5/12 p-2.5 lg:p-4 bg-blue-50 flex flex-col gap-1.5 lg:gap-5">
+            <p className="pl-2 lg:ml-2 border-l-2 border-primary text-primary lg:text-2xl">
+              Agenda
+            </p>
+            <ul className="pl-2">
+              {agenda?.map((row, index) => (
+                <Link href={`/information/agenda/${row?.slug}`} key={index}>
+                  <li className="py-1 flex items-start lg:items-center gap-1.5">
                     <div
-                      className={
-                        'flex flex-col justify-center items-center whitespace-nowrap gap-1.5 w-fit p-2 px-3 border border-primary bg-white'
-                      }
+                      className={`flex flex-col justify-center items-center whitespace-nowrap gap-1.5 w-fit p-1.5 lg:p-2 lg:px-3 border border-primary bg-white`}
                     >
-                      <p className={'font-semibold text-xl'}>
+                      <p className={'text-sm font-semibold lg:text-xl'}>
                         {row?.waktu_mulai ? format(row?.waktu_mulai, 'dd') : ''}
                       </p>
-                      <p>{row?.waktu_mulai ? format(row?.waktu_mulai, `MMM yy`) : ''}</p>
+                      <p className={'text-sm lg:text-base'}>
+                        {row?.waktu_mulai ? format(row?.waktu_mulai, `MMM yy`) : ''}
+                      </p>
                     </div>
                     <div className="flex flex-col gap-1.5">
-                      <p className="font-semibold">{row?.judul}</p>
-                      <p className="font-semibold">{row?.lokasi_kegiatan}</p>
+                      <p className="text-sm font-semibold line-clamp-2 lg:line-clamp-none">
+                        {row?.judul}
+                      </p>
+                      <p className="text-xs lg:font-semibold">{row?.lokasi_kegiatan}</p>
                     </div>
                   </li>
-                ))}
-              </ul>
-              <Link
-                href={'/agenda'}
-                className={'flex items-center gap-1.5 text-primary font-semibold'}
-              >
-                Lihat Agenda <ArrowRight />
-              </Link>
-            </div>
+                </Link>
+              ))}
+            </ul>
+            <Link
+              href={'/information/agenda'}
+              className={
+                'flex items-center gap-1.5 text-primary font-semibold text-xs lg:text-base '
+              }
+            >
+              Lihat Agenda <ArrowRight className={'size-4'} />
+            </Link>
+          </div>
 
-            <div className="w-7/12 p-4 border border-white">
-              <p className="pl-2 ml-2 border-l-2 border-white text-white text-2xl">Pengumuman</p>
-              <ul className={'pl-4 flex flex-col gap-1.5 mt-5'}>
-                {announcement?.map((row, index) => (
-                  <li key={index} className="py-1 flex items-center gap-1.5 text-white">
+          <div className="w-full lg:w-7/12 p-2.5 lg:p-4 border border-white">
+            <p className="pl-2 lg:ml-2 border-l-2 border-white text-white lg:text-2xl">
+              Pengumuman
+            </p>
+            <ul className={'pl-2 lg:pl-4 flex flex-col gap-1.5 lg:mt-5'}>
+              {announcement?.map((row, index) => (
+                <Link href={`/information/announcement/${row?.slug}`} key={index}>
+                  <li className="py-1 flex items-center gap-1.5 text-white">
                     <div className="flex flex-col gap-1.5">
-                      <p className="font-semibold">{row?.judul_pengumuman}</p>
-                      <p className="text-sm flex items-center gap-1.5">
+                      <p className="text-sm lg:text-base font-semibold line-clamp-3 lg:line-clamp-none">
+                        {row?.judul_pengumuman}
+                      </p>
+                      <p className="text-xs lg:text-sm flex items-center gap-1.5">
                         <FaRegCalendarAlt />
                         {row?.published_at ? format(row?.published_at, 'dd MMM yyyy') : ''}
                       </p>
                     </div>
                   </li>
-                ))}
-              </ul>
-              <Link
-                href={'/announcement'}
-                className={'flex mt-5 items-center gap-1.5 text-white font-semibold'}
-              >
-                Lihat Pengumuman <ArrowRight />
-              </Link>
-            </div>
+                </Link>
+              ))}
+            </ul>
+            <Link
+              href={'/information/announcement'}
+              className={
+                'flex items-center gap-1.5 mt-2 font-semibold text-xs lg:text-base text-white'
+              }
+            >
+              Lihat Pengumuman <ArrowRight className={'size-4'} />
+            </Link>
           </div>
         </div>
-
-        <Carousel
-          opts={{ loop: true }}
-          plugins={[
-            Fade(),
-            Autoplay({
-              delay: 5000,
-              stopOnInteraction: false,
-              playOnInit: true,
-            }),
-          ]}
-        >
-          <CarouselContent>
-            {sliderLanding
-              ?.filter((row) => row?.is_bawah)
-              .map((item, index) => (
-                <CarouselItem key={index}>
-                  <div className={'w-full max-w-[1920px] h-full max-h-[470px]'}>
-                    <Image
-                      src={item?.gambar_url}
-                      alt={'slider'}
-                      className={'w-full h-[470px] object-cover'}
-                      width={1440}
-                      height={470}
-                    />
-                  </div>
-                </CarouselItem>
-              ))}
-          </CarouselContent>
-        </Carousel>
       </div>
     </>
   )

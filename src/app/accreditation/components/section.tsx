@@ -25,7 +25,7 @@ export const AccreditationSection = () => {
 
   return (
     <>
-      <div className={'w-full h-full bg-[#EAEAEA] py-10 mx-auto max-w-[1920px]'}>
+      <div className={'w-full h-full bg-white py-5 lg:py-10 mx-auto max-w-[1920px]'}>
         <div className="container space-y-5">
           {loading ? (
             <>
@@ -56,7 +56,7 @@ export const AccreditationSection = () => {
           ) : (
             <>
               {accreditation?.map((item, k) => (
-                <div key={k} className={'flex flex-col lg:grid grid-cols-[340px_1fr] gap-5'}>
+                <div key={k} className={'flex flex-col lg:grid grid-cols-[340px_1fr] gap-5 border lg:border-none bg-white p-4 rounded'}>
                   <Image
                     src={item?.gambar}
                     alt={'gambar'}
