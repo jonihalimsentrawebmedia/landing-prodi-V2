@@ -36,7 +36,8 @@ export const ChipYear = (props: Props) => {
             }}
             className={clsx(
               category === item.toString() && 'bg-primary text-white',
-              `p-1.5 px-3 rounded border border-primary text-sm text-primary font-semibold`
+              `p-1.5 px-3 rounded border border-primary text-sm text-primary font-semibold`,
+              'dark:text-white dark:border-gray-100'
             )}
             key={index}
           >

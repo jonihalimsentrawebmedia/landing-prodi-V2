@@ -7,7 +7,7 @@ const GalleryPage = () => {
       <div className={'w-full max-w-[1920px] mx-auto'}>
         <JumbotronTitle context={'KONTAK'} title={'Galeri'} />
 
-        <div className="w-full">
+        <div className="w-full dark:bg-primary">
           <TabsGallery />
         </div>
       </div>

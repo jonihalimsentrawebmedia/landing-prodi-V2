@@ -35,7 +35,7 @@ export const ContactSection = () => {
 
   return (
     <>
-      <div className="w-full lg:p-5 bg-white mt-8">
+      <div className="w-full lg:p-5 bg-white mt-8 dark:bg-primary lg:dark:bg-primary-foreground/20">
         <p className="text-primary text-xl font-semibold">Kirim Pesan</p>
         <div className="flex gap-5 flex-col lg:flex-row">
           <FormContact />
@@ -60,13 +60,13 @@ export const ContactSection = () => {
             {faq.map((item, i) => (
               <AccordionItem value={item?.id_faq} key={i} className={'min-w-full'}>
                 <AccordionTrigger
-                  className={'bg-[#F5FAFF] px-2.5 py-2.5 rounded hover:no-underline'}
+                  className={'bg-[#F5FAFF] px-2.5 py-2.5 rounded hover:no-underline dark:bg-primary'}
                 >
                   {item?.pertanyaan}
                 </AccordionTrigger>
-                <AccordionContent className={'p-2.5 border border-[#F5FAFF] bg-white'}>
+                <AccordionContent className={'p-2.5 border border-[#F5FAFF] bg-white dark:bg-primary/10 dark:border-gray-100/20 dark:border-t-0'}>
                   <div
-                    className={'html-class'}
+                    className={'html-class flex flex-col gap-5'}
                     dangerouslySetInnerHTML={{ __html: item?.jawaban ?? '' }}
                   />
                 </AccordionContent>

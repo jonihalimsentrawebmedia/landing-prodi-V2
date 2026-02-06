@@ -18,7 +18,7 @@ export const SectionNewsProfile = () => {
   return (
     <>
       <div className={'flex flex-col gap-5'}>
-        <p className="text-3xl font-semibold text-primary">Berita</p>
+        <p className="text-3xl font-semibold text-primary dark:text-white">Berita</p>
         <div className="flex flex-col lg:grid grid-cols-3 gap-5">
           {news?.map((item, k) => (
             <Link href={`/information/news/${item?.slug}`} key={k}>

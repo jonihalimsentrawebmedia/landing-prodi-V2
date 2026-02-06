@@ -163,8 +163,12 @@ export const TabsCurriculumSection = (props: Props) => {
             onValueChange={setTabValue}
             className={'w-full relative !flex-row !items-start gap-5'}
           >
-            <TabsList className={'relative p-0 flex flex-col !h-fit rounded text-start bg-white'}>
-              <div className="w-full lg:flex mb-5">
+            <TabsList
+              className={
+                'relative p-0 flex flex-col !h-fit rounded text-start bg-white dark:bg-primary'
+              }
+            >
+              <div className="w-full lg:flex mb-5 bg-primary">
                 <FilterSelect
                   name={'slug'}
                   innerClassname={'lg:w-[185px] w-full'}
@@ -176,7 +180,7 @@ export const TabsCurriculumSection = (props: Props) => {
                   }
                 />
               </div>
-              <div className="bg-primary-foreground w-full">
+              <div className="bg-primary-foreground dark:bg-primary w-full">
                 {elements?.map((row, k) => (
                   <TabsTrigger
                     key={k}
@@ -196,7 +200,7 @@ export const TabsCurriculumSection = (props: Props) => {
               <TabsContent className={''} value={item?.value} key={k}>
                 <div className={'flex items-start gap-5 w-full'}>
                   <div className={'grid grid-cols-[1fr_200px] w-full border border-gray-400'}>
-                    <div className="col-span-2 bg-blue-100 font-bold text-center p-1.5 border-b border-gray-400">
+                    <div className="col-span-2 bg-blue-100 dark:bg-primary font-bold text-center p-1.5 border-b border-gray-400">
                       Semester {tabValue !== 'other' && `${(Number(tabValue) - 1) * 2 + 1}`} /
                       Ganjil
                     </div>
@@ -206,18 +210,22 @@ export const TabsCurriculumSection = (props: Props) => {
                         <p className={'p-1.5 text-end font-semibold'}>{row?.sks} SKS</p>
                       </Fragment>
                     ))}
-                    <p className={'font-semibold p-1.5 bg-blue-100 border-t border-gray-400'}>
+                    <p
+                      className={
+                        'font-semibold p-1.5 bg-blue-100 dark:bg-primary border-t border-gray-400'
+                      }
+                    >
                       Total
                     </p>
                     <p
-                      className={`font-semibold p-1.5 bg-blue-100 border-t text-end border-gray-400`}
+                      className={`font-semibold p-1.5 bg-blue-100 dark:bg-primary border-t text-end border-gray-400`}
                     >
                       {TotalSKS(subject?.ganjil)}
                     </p>
                   </div>
 
                   <div className={'grid grid-cols-[1fr_200px] w-full border border-gray-400'}>
-                    <div className="col-span-2 bg-blue-100 font-bold text-center p-1.5 border-b border-gray-400">
+                    <div className="col-span-2 bg-blue-100 dark:bg-primary font-bold text-center p-1.5 border-b border-gray-400">
                       Semester {tabValue !== 'other' && `${(Number(tabValue) - 1) * 2 + 2}`} / Genap
                     </div>
                     {subject?.genap?.map((row, k) => (
@@ -226,11 +234,15 @@ export const TabsCurriculumSection = (props: Props) => {
                         <p className={'p-1.5 text-end font-semibold'}>{row?.sks} SKS</p>
                       </Fragment>
                     ))}
-                    <p className={'font-semibold p-1.5 bg-blue-100 border-t border-gray-400'}>
+                    <p
+                      className={
+                        'font-semibold p-1.5 bg-blue-100 dark:bg-primary border-t border-gray-400'
+                      }
+                    >
                       Total
                     </p>
                     <p
-                      className={`font-semibold p-1.5 bg-blue-100 border-t text-end border-gray-400`}
+                      className={`font-semibold p-1.5 bg-blue-100 dark:bg-primary border-t text-end border-gray-400`}
                     >
                       {TotalSKS(subject?.genap)}
                     </p>

@@ -26,7 +26,7 @@ export const RegistrationSection = () => {
   return (
     <>
       <Tabs value={tabValue} onValueChange={setTabValue} className={'lg:flex !flex-row hidden'}>
-        <TabsList className={'rounded-none flex flex-col !h-fit bg-primary-foreground p-0'}>
+        <TabsList className={'rounded-none flex flex-col !h-fit bg-primary-foreground p-0 dark:bg-primary'}>
           {registration.map((item, k) => (
             <TabsTrigger
               value={item?.id_jalur_pendaftaran}
@@ -42,7 +42,7 @@ export const RegistrationSection = () => {
           ))}
         </TabsList>
         {registration.map((item, k) => (
-          <TabsContent className={'bg-white px-5'} value={item?.id_jalur_pendaftaran} key={k}>
+          <TabsContent className={'bg-white dark:bg-primary/40 px-5'} value={item?.id_jalur_pendaftaran} key={k}>
             <div
               className={'html-class'}
               dangerouslySetInnerHTML={{ __html: item?.deskripsi ?? '' }}
@@ -62,8 +62,8 @@ export const RegistrationSection = () => {
           <AccordionItem value={item?.id_jalur_pendaftaran} key={k}>
             <AccordionTrigger
               className={clsx(
-                'rounded-none p-2 bg-primary-foreground border-l-4 border-l-primary',
-                tabValue === item?.id_jalur_pendaftaran ? 'bg-primary text-white border-l-yellow-500' : ''
+                'rounded-none p-2 bg-primary-foreground border-l-4 border-l-primary dark:text-primary',
+                tabValue === item?.id_jalur_pendaftaran ? 'bg-primary dark:bg-primary-foreground dark:text-primary text-white border-l-yellow-500' : ''
               )}
             >
               {item?.nama_jalur_pendaftaran}

@@ -9,9 +9,9 @@ export const ContactDetail = () => {
     <>
       <div className={'w-full lg:border-l border-gray-400 lg:pl-5'}>
         <p className="text-3xl text-primary font-semibold">Kontak Kami</p>
-        <Card className={'p-2 mt-2 rounded-md drop-shadow-none shadow-none'}>
+        <Card className={'p-2 mt-2 rounded-md drop-shadow-none shadow-none dark:bg-primary'}>
           <CardContent className={'p-2'}>
-            <p className="text-primary font-semibold text-xl">Universitas</p>
+            <p className="dark:text-white text-primary font-semibold text-xl">Universitas</p>
             <div className="grid lg:grid-cols-[12rem_1fr] gap-2.5 mt-2">
               <p>Telepon</p>
               <p>: {profile?.telepon_universitas}</p>
@@ -21,9 +21,9 @@ export const ContactDetail = () => {
           </CardContent>
         </Card>
 
-        <Card className={'p-2 mt-2 rounded-md drop-shadow-none shadow-none'}>
+        <Card className={'p-2 mt-2 rounded-md drop-shadow-none shadow-none dark:bg-primary'}>
           <CardContent className={'p-2'}>
-            <p className="text-primary font-semibold text-xl">Program Studi</p>
+            <p className="dark:text-white text-primary font-semibold text-xl">Program Studi</p>
             <div className="grid lg:grid-cols-[12rem_1fr] gap-2.5 mt-2">
               <p>Telepon</p>
               <p>: {profile?.SatuanOrganisasi?.telepon}</p>
@@ -33,9 +33,9 @@ export const ContactDetail = () => {
           </CardContent>
         </Card>
 
-        <Card className={'p-2 mt-2 rounded-md drop-shadow-none shadow-none'}>
+        <Card className={'p-2 mt-2 rounded-md drop-shadow-none shadow-none dark:bg-primary'}>
           <CardContent className={'p-2'}>
-            <p className="text-primary font-semibold text-xl">Sosial Media</p>
+            <p className="dark:text-white text-primary font-semibold text-xl">Sosial Media</p>
             <div className="grid lg:grid-cols-[12rem_1fr] gap-4 mt-2">
               <p className={'flex items-center gap-1'}>
                 <FaFacebook className={'text-primary size-5'} />

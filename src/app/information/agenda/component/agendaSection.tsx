@@ -34,11 +34,11 @@ export const AgendaSection = () => {
       <div className={'py-5'}>
         <div className={'lg:grid lg:grid-cols-4 gap-y-5 lg:gap-5 container flex flex-col'}>
           <div className={'col-span-4'}>
-            <Link href={'/information'} className={'flex w-fit items-center gap-1.5 text-primary'}>
+            <Link href={'/information'} className={'flex w-fit items-center gap-1.5 text-primary dark:text-white'}>
               <ArrowLeft className={'size-4'} />
               Kembali
             </Link>
-            <p className="mb-5 my-2 lg:mt-3 underline underline-offset-8 lg:text-2xl font-semibold text-primary">
+            <p className="mb-5 my-2 lg:mt-3 underline underline-offset-8 lg:text-2xl font-semibold text-primary dark:text-white">
               Agenda Program Studi
             </p>
             <SearchInput
@@ -59,14 +59,14 @@ export const AgendaSection = () => {
                   width={500}
                   height={250}
                 />
-                <div className={'px-2.5 bg-white flex flex-col gap-2 p-1.5'}>
+                <div className={'px-2.5 bg-white flex flex-col gap-2 p-1.5 dark:bg-primary'}>
                   <p className={'font-semibold line-clamp-2'}>{row?.judul}</p>
                   <p className={'flex items-center gap-1.5 text-sm'}>
-                    <FaLocationDot className={'text-primary size-4'} />
+                    <FaLocationDot className={'dark:text-white text-primary size-4'} />
                     {row?.lokasi_kegiatan}
                   </p>
                   <p className={'flex items-center gap-1.5 text-sm'}>
-                    <FaRegCalendarAlt className={'text-primary size-4'} />
+                    <FaRegCalendarAlt className={'dark:text-white text-primary size-4'} />
                     {row?.published_at
                       ? format(row?.published_at, 'dd MMM yyyy', { locale: id })
                       : ''}

@@ -44,7 +44,7 @@ export const MoreNews = () => {
             Kembali
           </Link>
           <div className={'col-span-4'}>
-            <p className="lg:mb-5 mb-2.5 underline underline-offset-8 lg:text-2xl font-semibold text-primary">
+            <p className="lg:mb-5 mb-2.5 underline underline-offset-8 lg:text-2xl font-semibold text-primary dark:text-white">
               Berita Program Studi
             </p>
             <SearchInput

@@ -16,7 +16,7 @@ export const UnitSection = () => {
   return (
     <>
       <div className={'flex flex-col gap-5'}>
-        <p className="text-3xl font-semibold text-primary">Unit Pengelola</p>
+        <p className="text-3xl font-semibold text-primary dark:text-white">Unit Pengelola</p>
 
         <div className="mt-5 space-y-4">
           {unitProfile?.map((row, k) => (

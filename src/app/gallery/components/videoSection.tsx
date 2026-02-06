@@ -17,7 +17,7 @@ export const VideoSection = () => {
 
   return (
     <>
-      <div className={'container bg-white mt-2'}>
+      <div className={'container bg-white mt-2 dark:bg-primary'}>
         <SearchInput className={'w-full rounded'} placeholder={'Cari Video'} />
         <div className="py-4 grid lg:grid-cols-3 gap-5">
           {galleryVideo?.map((item, k) => (

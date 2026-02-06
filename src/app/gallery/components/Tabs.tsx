@@ -42,7 +42,7 @@ export const TabsGallery = () => {
   return (
     <>
       <Tabs value={value} onValueChange={(e) => HandlerTabs(e)} className={'w-full container py-5'}>
-        <TabsList className={'w-full rounded-none bg-white p-0'}>
+        <TabsList className={'w-full rounded-none bg-white dark:bg-primary p-0'}>
           {tabsData.map((tab, k) => (
             <TabsTrigger
               key={k}
@@ -50,6 +50,7 @@ export const TabsGallery = () => {
               className={`rounded-none !border-x-0 !shadow-none data-[state=active]:bg-primary-foreground
               border-b-2 border-b-gray-200 data-[state=active]:border-b-primary
               data-[state=active]:text-primary
+              dark:data-[state=active]:border-b-yellow-500 border-t-0
               `}
             >
               {tab?.label}

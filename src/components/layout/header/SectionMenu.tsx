@@ -7,6 +7,7 @@ import { clsx } from 'clsx'
 import { UseGetOrganizationProfile } from '@/app/home/hooks'
 import { UseStateContext } from '@/contexts'
 import { useEffect } from 'react'
+import { ButtonDarkMode } from '@/components/layout/header/darkMode'
 
 export const SectionMenu = () => {
   const pathname = usePathname()
@@ -40,6 +41,9 @@ export const SectionMenu = () => {
           </li>
         </Link>
       ))}
+      <li>
+        <ButtonDarkMode />
+      </li>
     </ul>
   )
 }

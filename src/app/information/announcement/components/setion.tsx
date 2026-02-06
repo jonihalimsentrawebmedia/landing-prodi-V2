@@ -33,7 +33,7 @@ export const AnnouncementSection = () => {
       <div className="py-5">
         <div className={'flex flex-col lg:grid lg:grid-cols-4 gap-5 container'}>
           <div className={'col-span-4'}>
-            <Link href={'/information'} className={'flex items-center gap-1.5 text-primary'}>
+            <Link href={'/information'} className={'flex items-center gap-1.5 text-primary dark:text-white'}>
               <ArrowLeft className={'size-4'} />
               Kembali
             </Link>
@@ -47,7 +47,7 @@ export const AnnouncementSection = () => {
 
           {announcement?.map((item, l) => (
             <Link href={`/information/announcement/${item?.slug}`} key={l}>
-              <div className="border p-5 rounded w-full flex flex-col gap-2 cursor-pointer">
+              <div className="border p-5 rounded w-full flex flex-col gap-2 cursor-pointer dark:bg-primary">
                 <Image
                   src={profile?.SatuanOrganisasi?.logo || '/img/noimg.png'}
                   alt="logo"
@@ -56,7 +56,7 @@ export const AnnouncementSection = () => {
                   className="size-[120px] object-cover mx-auto"
                 />
                 <p className="line-clamp-2 font-semibold">{item?.judul_pengumuman}</p>
-                <p className="flex text-primary items-center gap-1.5 text-sm">
+                <p className="flex text-primary items-center gap-1.5 text-sm dark:text-white">
                   <FaRegCalendarAlt />
                   {item?.published_at
                     ? format(item?.published_at, 'dd MMM yyyy', { locale: id })

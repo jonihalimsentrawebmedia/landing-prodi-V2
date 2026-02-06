@@ -33,12 +33,12 @@ export const SectionAgenda = () => {
         <div className="flex flex-col-reverse lg:flex-row lg:items-start gap-5">
           <div className="w-full lg:w-1/2">
             <p className="text-sm lg:text-3xl">{detail?.judul}</p>
-            <div className="mt-5 flex flex-col lg:flex-row lg:items-center gap-2 lg:gap-4">
+            <div className="mt-5 grid grid-cols-2 gap-2 lg:gap-5">
               <Card
-                className={`p-1 lg:p-2 lg:w-[200px] rounded-md border-primary shadow-none drop-shadow-none`}
+                className={`p-1 lg:p-2 w-full rounded-md border-primary shadow-none drop-shadow-none col-span-2 lg:col-span-1`}
               >
                 <CardContent className={'p-1 lg:p-2 flex flex-col gap-1.5'}>
-                  <p className="text-xs text-primary">Waktu</p>
+                  <p className="text-xs text-primary dark:text-white">Waktu</p>
                   <p className={'text-sm'}>
                     {detail?.waktu_mulai ? format(detail?.waktu_mulai, 'dd MMM yyyy HH:mm') : ''}{' '}
                     s.d{' '}
@@ -50,23 +50,23 @@ export const SectionAgenda = () => {
               </Card>
 
               <Card
-                className={`p-1 lg:p-2 lg:w-[200px] rounded-md border-primary shadow-none drop-shadow-none`}
+                className={`p-1 lg:p-2 w-full rounded-md border-primary shadow-none drop-shadow-none`}
               >
                 <CardContent className={'p-1 lg:p-2 flex flex-col gap-1.5'}>
-                  <p className="text-xs text-primary  ">Lokasi</p>
+                  <p className="text-xs text-primary dark:text-white">Lokasi</p>
                   <p>{detail?.lokasi_kegiatan}</p>
                 </CardContent>
               </Card>
-            </div>
 
-            <Card
-              className={`mt-2 lg:mt-0 p-1 lg:p-2 lg:w-[200px] rounded-md border-primary shadow-none drop-shadow-none`}
-            >
-              <CardContent className={'p-1 lg:p-2 flex flex-col gap-1.5'}>
-                <p className="text-xs text-primary  ">Peneribit</p>
-                <p>{detail?.penulis}</p>
-              </CardContent>
-            </Card>
+              <Card
+                className={`p-1 lg:p-2 w-full rounded-md border-primary shadow-none drop-shadow-none `}
+              >
+                <CardContent className={'p-1 lg:p-2 flex flex-col gap-1.5'}>
+                  <p className="text-xs text-primary dark:text-white">Peneribit</p>
+                  <p>{detail?.penulis}</p>
+                </CardContent>
+              </Card>
+            </div>
 
             <div
               className="html-class flex flex-col gap-5 my-5 text-justify"
@@ -88,12 +88,12 @@ export const SectionAgenda = () => {
         </div>
       </div>
 
-      <div className="w-full mx-auto max-w-[1920px] bg-gray-100 py-5">
+      <div className="w-full mx-auto max-w-[1920px] bg-gray-100 dark:bg-primary/70 py-5">
         <div className="mt-2 lg:mt-0 flex flex-col lg:grid grid-cols-3 gap-5 container">
           <TitleUnderline text={'Lihat Agenda Lainya'} className={'text-start col-span-3'} />
           {agenda?.map((item, l) => (
             <Link href={`/information/agenda/${item?.slug}`} key={l}>
-              <div className={'border'}>
+              <div className={'border rounded'}>
                 <Image
                   src={item?.gambar ?? '/img/noimg.png'}
                   alt={item?.judul ?? ''}
@@ -103,11 +103,11 @@ export const SectionAgenda = () => {
                 />
                 <div className="p-2 flex flex-col gap-1.5">
                   <p className="line-clamp-2 font-semibold">{item?.judul}</p>
-                  <p className={'text-primary flex items-center gap-1.5'}>
+                  <p className={'text-primary dark:text-white flex items-center gap-1.5'}>
                     <FaLocationDot />
                     {item.lokasi_kegiatan}
                   </p>
-                  <p className="flex text-primary items-center gap-1.5 text-sm">
+                  <p className="flex text-primary items-center gap-1.5 text-sm dark:text-white">
                     <FaRegCalendarAlt />
                     {item?.published_at
                       ? format(item?.published_at, 'dd MMM yyyy', { locale: id })

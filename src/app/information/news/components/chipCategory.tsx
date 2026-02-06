@@ -37,7 +37,8 @@ export const ChipCategoryNews = (props: Props) => {
             }}
             className={clsx(
               category === item?.slug && 'bg-primary text-white',
-              `p-1.5 px-3 rounded-full border border-primary text-sm text-primary font-semibold whitespace-nowrap`
+              `p-1.5 px-3 rounded-full border border-primary text-sm text-primary font-semibold whitespace-nowrap`,
+              'dark:text-white dark:border-gray-100'
             )}
             key={index}
           >

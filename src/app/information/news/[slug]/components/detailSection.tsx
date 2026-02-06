@@ -36,13 +36,13 @@ export const DetailSectionNews = () => {
           Kembali
         </Link>
 
-        <div className="w-full h-full lg:p-5 bg-primary-foreground rounded-md my-2">
+        <div className="w-full h-full lg:p-5 bg-primary-foreground dark:bg-primary rounded-md my-2">
           <div className="flex flex-col-reverse lg:flex-row items-center lg:gap-5">
             <div className="lg:w-7/12 w-full p-2.5 lg:p-0">
-              <h1 className={'text-sm lg:text-2xl font-semibold text-primary'}>
+              <h1 className={'text-sm lg:text-2xl font-semibold text-primary dark:text-white'}>
                 {newsDetail?.judul}
               </h1>
-              <div className="grid grid-cols-2 lg:grid-cols-[12rem_1fr] gap-2.5 text-primary text-sm mt-2">
+              <div className="grid grid-cols-2 lg:grid-cols-[12rem_1fr] gap-2.5 text-primary dark:text-white text-sm mt-2">
                 <p className={'flex items-center gap-1.5'}>
                   <FaRegCalendarAlt className={'size-4'} />
                   Diupload
@@ -67,7 +67,7 @@ export const DetailSectionNews = () => {
                         alt={'gambar'}
                         width={500}
                         height={300}
-                        className={`object-cover lg:object-contain bg-gray-100 shadow-lg drop-shadow-lg rounded w-full h-[200px] lg:h-[300px]`}
+                        className={`object-cover lg:object-contain bg-gray-100 dark:bg-primary-foreground/10 shadow-lg drop-shadow-lg rounded w-full h-[200px] lg:h-[300px]`}
                       />
                     </CarouselItem>
                   ))}
@@ -87,7 +87,7 @@ export const DetailSectionNews = () => {
       </div>
 
       {news.length > 0 && (
-        <div className="w-full mx-auto max-w-[1920px] bg-gray-100 py-5">
+        <div className="w-full mx-auto max-w-[1920px] bg-gray-100 dark:bg-primary/50 py-5">
           <div className="container flex flex-col lg:grid grid-cols-3 gap-5 pb-5">
             <TitleUnderline text={'Baca Berita Lainya'} className={'text-start col-span-3'} />
             {news?.map((row, k) => (

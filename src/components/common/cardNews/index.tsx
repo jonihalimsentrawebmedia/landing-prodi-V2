@@ -15,7 +15,8 @@ export const CardNewsItem = (props: Props) => {
     <>
       <div
         className={clsx(
-          'bg-white shadow rounded-md overflow-hidden group hover:bg-primary-foreground'
+          'bg-white shadow rounded-md overflow-hidden group hover:bg-primary-foreground',
+          'dark:bg-primary border-gray-100/30 border'
         )}
       >
         <div className={'w-full h-[200px] lg:h-[240px] relative overflow-hidden'}>
@@ -31,7 +32,9 @@ export const CardNewsItem = (props: Props) => {
         </div>
 
         <div className={'p-2 flex flex-col gap-1.5'}>
-          <p className="font-semibold line-clamp-2 group-hover:text-primary">{judul}</p>
+          <p className="font-semibold line-clamp-2 group-hover:text-primary dark:group-hover:text-white">
+            {judul}
+          </p>
           <p className="text-gray-500 text-xs font-semibold">
             {published_at ? format(published_at, 'dd MMM yyyy') : '-'}
           </p>

@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button'
 import { MdDownload } from 'react-icons/md'
 import { Toaster } from '@/components/common/toaster'
 import { UseDownloadFile } from '@/lib/helper'
+import { clsx } from 'clsx'
 
 export const AccreditationSection = () => {
   const { accreditation, loading } = UseGetAccreditation()
@@ -25,7 +26,9 @@ export const AccreditationSection = () => {
 
   return (
     <>
-      <div className={'w-full h-full bg-white py-5 lg:py-10 mx-auto max-w-[1920px]'}>
+      <div
+        className={'w-full h-full bg-white dark:bg-primary/40 py-5 lg:py-10 mx-auto max-w-[1920px]'}
+      >
         <div className="container space-y-5">
           {loading ? (
             <>
@@ -56,7 +59,13 @@ export const AccreditationSection = () => {
           ) : (
             <>
               {accreditation?.map((item, k) => (
-                <div key={k} className={'flex flex-col lg:grid grid-cols-[340px_1fr] gap-5 border lg:border-none bg-white p-4 rounded'}>
+                <div
+                  key={k}
+                  className={clsx(
+                    'flex flex-col lg:grid grid-cols-[340px_1fr] gap-5 bg-white dark:bg-primary p-4 rounded',
+                    'border'
+                  )}
+                >
                   <Image
                     src={item?.gambar}
                     alt={'gambar'}

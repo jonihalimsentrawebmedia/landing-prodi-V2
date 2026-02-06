@@ -14,19 +14,19 @@ export const SectionVisionMission = () => {
   return (
     <>
       <div className={'flex flex-col gap-5'}>
-        <p className="text-3xl font-semibold text-primary">Visi</p>
+        <p className="text-3xl font-semibold text-primary dark:text-white">Visi</p>
         <div
           className={'html-class'}
           dangerouslySetInnerHTML={{ __html: visionMission?.visi ?? '' }}
         />
 
-        <p className="text-3xl font-semibold text-primary">Misi</p>
+        <p className="text-3xl font-semibold text-primary dark:text-white">Misi</p>
         <div
           className={'html-class'}
           dangerouslySetInnerHTML={{ __html: visionMission?.misi ?? '' }}
         />
 
-        <p className="text-3xl font-semibold text-primary">Tujuan</p>
+        <p className="text-3xl font-semibold text-primary dark:text-white">Tujuan</p>
         <div
           className={'html-class'}
           dangerouslySetInnerHTML={{ __html: visionMission?.tujuan ?? '' }}

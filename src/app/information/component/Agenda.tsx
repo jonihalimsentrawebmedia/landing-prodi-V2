@@ -18,7 +18,7 @@ export const AgendaInformation = () => {
 
   return (
     <>
-      <div className={'py-10 bg-[#F7F7F7] w-full mx-auto max-w-[1920px]'}>
+      <div className={'py-10 bg-[#F7F7F7] dark:bg-primary/40 w-full mx-auto max-w-[1920px]'}>
         <div className="container">
           <TitleUnderline text={'Agenda Program Studi'} className={'text-center'} />
 
@@ -28,14 +28,14 @@ export const AgendaInformation = () => {
                 href={`/information/agenda/${row?.slug}`}
                 key={index}
                 className={
-                  'flex items-center gap-2 bg-white shadow p-2 rounded border-l-4 border-l-primary rounded-l-none'
+                  'flex items-center gap-2 bg-white dark:bg-primary shadow p-2 rounded border-l-4 border-l-primary rounded-l-none'
                 }
               >
-                <div className={'text-center w-18 pr-1.5 border-r border-r-primary'}>
-                  <p className={'font-semibold text-xl text-primary'}>
+                <div className={'text-center w-18 pr-1.5 border-r border-r-primary dark:border-r-white'}>
+                  <p className={'font-semibold text-xl text-primary dark:text-white'}>
                     {row?.waktu_mulai ? format(row?.waktu_mulai, 'dd') : ''}
                   </p>
-                  <p className={'text-primary'}>
+                  <p className={'text-primary dark:text-white'}>
                     {row?.waktu_mulai ? format(row?.waktu_mulai, 'MMM yy') : ''}
                   </p>
                 </div>
@@ -53,7 +53,7 @@ export const AgendaInformation = () => {
           <div className="flex items-center justify-end mt-5">
             <Link
               href={'/information/agenda'}
-              className={'flex items-center gap-1 font-semibold text-primary'}
+              className={'flex items-center gap-1 font-semibold text-primary dark:text-white'}
             >
               Lihat Agenda Lainnya
               <ArrowRight className={'size-4'} />

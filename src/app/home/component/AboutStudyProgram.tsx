@@ -18,7 +18,7 @@ export const AboutStudyProgram = () => {
 
   return (
     <>
-      <div className={'bg-gray-100 w-full h-full mx-auto max-w-[1920px] py-10'}>
+      <div className={'bg-gray-100 dark:bg-primary w-full h-full mx-auto max-w-[1920px] py-10'}>
         <div className="container">
           <TitleUnderline
             text={`Tentang ${profile?.SatuanOrganisasi?.kode_jenjang} ${profile?.SatuanOrganisasi?.nama}`}

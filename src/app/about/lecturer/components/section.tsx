@@ -14,7 +14,7 @@ export const SectionLecturerProfile = () => {
   return (
     <>
       <div className={'flex flex-col gap-5'}>
-        <p className="text-3xl font-semibold text-primary">Dosen</p>
+        <p className="text-3xl font-semibold text-primary dark:text-white">Dosen</p>
 
         <div className="grid lg:grid-cols-2 gap-4">
           {loading ? (

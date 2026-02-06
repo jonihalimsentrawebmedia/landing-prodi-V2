@@ -66,7 +66,7 @@ export const DetailSectionAnnouncement = () => {
                 className={`p-1 lg:p-2 w-[200px] rounded-md border-primary shadow-none drop-shadow-none`}
               >
                 <CardContent className={'p-1 lg:p-2 flex flex-col gap-1.5'}>
-                  <p className="text-xs text-primary  ">Tanggal</p>
+                  <p className="text-xs text-primary dark:text-white">Tanggal</p>
                   <p className={'text-sm lg:text-base'}>
                     {detail?.published_at ? format(detail?.published_at, 'dd MMM yyyy') : ''}
                   </p>
@@ -76,7 +76,7 @@ export const DetailSectionAnnouncement = () => {
                 className={`p-1 lg:p-2 w-[200px] rounded-md border-primary shadow-none drop-shadow-none`}
               >
                 <CardContent className={'p-1 lg:p-2 flex flex-col gap-1.5'}>
-                  <p className="text-xs text-primary  ">Peneribit</p>
+                  <p className="text-xs text-primary dark:text-white">Peneribit</p>
                   <p>{detail?.penulis}</p>
                 </CardContent>
               </Card>
@@ -85,7 +85,7 @@ export const DetailSectionAnnouncement = () => {
             <Button
               variant={'outline'}
               onClick={DownloadFile}
-              className={'text-primary border-primary rounded-full mt-4 hover:text-primary'}
+              className={'text-primary dark:text-white border-primary rounded-full mt-4 hover:text-primary'}
             >
               <MdDownload />
               Unduh Dokumen
@@ -120,7 +120,7 @@ export const DetailSectionAnnouncement = () => {
         </div>
       </div>
 
-      <div className="w-full mx-auto max-w-[1920px] bg-gray-100 py-5">
+      <div className="w-full mx-auto max-w-[1920px] bg-gray-100 py-5 dark:bg-primary/40">
         <div className="flex flex-col lg:grid lg:grid-cols-3 gap-5 container">
           <TitleUnderline text={'Lihat Pengumuman Lainya'} className={'text-start col-span-3'} />
           {announcement?.map((item, l) => (
@@ -134,7 +134,7 @@ export const DetailSectionAnnouncement = () => {
                   className="size-[120px] object-cover mx-auto"
                 />
                 <p className="line-clamp-2 font-semibold">{item?.judul_pengumuman}</p>
-                <p className="flex text-primary items-center gap-1.5 text-sm">
+                <p className="flex text-primary dark:text-white items-center gap-1.5 text-sm">
                   <FaRegCalendarAlt />
                   {item?.published_at
                     ? format(item?.published_at, 'dd MMM yyyy', { locale: id })

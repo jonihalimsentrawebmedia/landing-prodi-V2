@@ -70,7 +70,7 @@ export const AlbumSection = () => {
       ) : (
         <>
           <div className="lg:container mt-2">
-            <div className={'lg:grid lg:grid-cols-3 gap-5 bg-white flex flex-col'}>
+            <div className={'lg:grid lg:grid-cols-3 gap-5 bg-white dark:bg-primary flex flex-col'}>
               <div
                 className={'text-xs lg:text-xl font-semibold flex items-center gap-2 col-span-3'}
               >

@@ -10,6 +10,7 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { FaRegCalendarAlt } from '@react-icons/all-files/fa/FaRegCalendarAlt'
 import { AgendaAnnouncementSkeleton } from '@/app/home/component/skeleton'
+import { clsx } from 'clsx'
 
 export const AgendaAnnouncement = () => {
   const { sliderLanding, loading: load1 } = UseGetSliderLanding()
@@ -63,8 +64,8 @@ export const AgendaAnnouncement = () => {
         </div>
 
         <div className="container z-30 flex flex-col lg:flex-row items-center gap-x-8 relative lg:h-[480px] py-5 lg:py-0 gap-5">
-          <div className="w-full lg:w-5/12 p-2.5 lg:p-4 bg-blue-50 flex flex-col gap-1.5 lg:gap-5">
-            <p className="pl-2 lg:ml-2 border-l-2 border-primary text-primary lg:text-2xl">
+          <div className="w-full lg:w-5/12 p-2.5 lg:p-4 bg-blue-50 flex flex-col gap-1.5 lg:gap-5 dark:bg-primary">
+            <p className="pl-2 lg:ml-2 border-l-2 border-primary text-primary lg:text-2xl dark:text-white dark:border-l-yellow-500">
               Agenda
             </p>
             <ul className="pl-2">
@@ -72,7 +73,11 @@ export const AgendaAnnouncement = () => {
                 <Link href={`/information/agenda/${row?.slug}`} key={index}>
                   <li className="py-1 flex items-start lg:items-center gap-1.5">
                     <div
-                      className={`flex flex-col justify-center items-center whitespace-nowrap gap-1.5 w-fit p-1.5 lg:p-2 lg:px-3 border border-primary bg-white`}
+                      className={clsx(
+                        `flex flex-col justify-center items-center whitespace-nowrap`,
+                        'gap-1.5 w-fit p-1.5 lg:p-2 lg:px-3 border border-primary bg-white dark:bg-primary',
+                        'dark:border-gray-100 rounded'
+                      )}
                     >
                       <p className={'text-sm font-semibold lg:text-xl'}>
                         {row?.waktu_mulai ? format(row?.waktu_mulai, 'dd') : ''}
@@ -93,9 +98,10 @@ export const AgendaAnnouncement = () => {
             </ul>
             <Link
               href={'/information/agenda'}
-              className={
-                'flex items-center gap-1.5 text-primary font-semibold text-xs lg:text-base '
-              }
+              className={clsx(
+                'flex items-center gap-1.5 text-primary font-semibold text-xs lg:text-base',
+                'dark:text-white'
+              )}
             >
               Lihat Agenda <ArrowRight className={'size-4'} />
             </Link>

@@ -11,7 +11,7 @@ export const SectionStructureOrganization = () => {
   return (
     <>
       <div className={'flex flex-col gap-5'}>
-        <p className="text-3xl font-semibold text-primary">Struktur Organisasi</p>
+        <p className="text-3xl font-semibold text-primary dark:text-white">Struktur Organisasi</p>
 
         {organization?.url_gambar ? (
           <Image

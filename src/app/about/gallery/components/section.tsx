@@ -41,7 +41,7 @@ export const GalleryProfileSection = () => {
         {loading ? (
           <div className="h-9 w-40 bg-gray-200 rounded animate-pulse" />
         ) : (
-          <p className="text-3xl font-semibold text-primary">Galeri</p>
+          <p className="text-3xl font-semibold text-primary dark:text-white">Galeri</p>
         )}
         {loading ? (
           <div className="h-10 w-60 bg-gray-200 rounded animate-pulse" />

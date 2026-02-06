@@ -27,16 +27,18 @@ export const TabsContactRegistration = () => {
       <Tabs
         value={value}
         onValueChange={setValue}
-        className={'w-full container bg-white py-5 border-none'}
+        className={'w-full container bg-white dark:bg-primary py-5 border-none'}
       >
-        <TabsList className={'w-full rounded-none bg-white p-0'}>
+        <TabsList className={'w-full rounded-none bg-white p-0 border-none'}>
           {tabsData.map((tab, k) => (
             <TabsTrigger
               key={k}
               value={tab?.value}
               className={`rounded-none !border-x-0 !shadow-none data-[state=active]:bg-primary-foreground
               border-b-2 border-b-gray-200 data-[state=active]:border-b-primary
-              data-[state=active]:text-primary
+              data-[state=active]:text-primary dark:bg-primary
+              data-[state=active]:dark:bg-primary !border-t-0
+              dark:data-[state=active]:border-b-yellow-500
               `}
             >
               {tab?.label}

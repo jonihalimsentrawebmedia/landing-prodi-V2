@@ -19,10 +19,10 @@ export const PromotionInformation = () => {
 
   return (
     <>
-      <div className="bg-[#F5F5F5] w-full max-w-[1920px] mx-auto">
+      <div className="bg-gray-500 dark:bg-primary w-full max-w-[1920px] mx-auto">
         <div
           style={{
-            backgroundImage: "url('/img/pola2.png')",
+            backgroundImage: "url('/img/polabg.png')",
             backgroundAttachment: 'fixed',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
@@ -35,7 +35,10 @@ export const PromotionInformation = () => {
 
             <div className="grid lg:grid-cols-2 gap-5 mt-8">
               {promotion?.map((row, k) => (
-                <div key={k} className={'p-4 bg-white rounded flex flex-col lg:flex-row items-center gap-2.5'}>
+                <div
+                  key={k}
+                  className={'p-4 bg-white dark:bg-primary dark:border rounded flex flex-col lg:flex-row items-center gap-2.5'}
+                >
                   <div className={'min-w-[233px] w-full h-[175px] bg-gray-100 relative shadow'}>
                     <Image
                       src={row?.gambar}

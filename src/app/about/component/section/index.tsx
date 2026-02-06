@@ -36,7 +36,7 @@ export const AboutSection = () => {
 
   return (
     <>
-      <p className="text-2xl text-primary">
+      <p className="text-2xl text-primary dark:text-white">
         Tentang {detail?.kode_jenjang}-{detail?.nama}
       </p>
       <div className={'rounded-lg w-full p-4 mt-2 bg-linear-to-r from-primary to-[#004080]'}>
@@ -79,7 +79,7 @@ export const AboutSection = () => {
         </div>
         <div className="flex items-center justify-between mt-2">
           <p className={'text-xs'}>Butuh informasi lebih lanjut? hubungi kami via email</p>
-          <button className={'flex items-center gap-1.5 text-sm border bg-blue-100 rounded p-1.5'}>
+          <button className={'flex items-center gap-1.5 text-sm border bg-blue-100 rounded p-1.5 dark:bg-primary'}>
             <MdEmail />
             {detail?.email}
           </button>

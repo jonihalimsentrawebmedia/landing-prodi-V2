@@ -11,7 +11,8 @@ export const TitleUnderline = (props: Props) => {
     <h2
       className={clsx(
         className,
-        'underline underline-offset-[8px] text-primary lg:text-2xl font-semibold decoration-primary'
+        'underline underline-offset-[8px] text-primary lg:text-2xl font-semibold decoration-primary',
+        'dark:text-primary-foreground dark:decoration-yellow-600'
       )}
     >
       {text}
