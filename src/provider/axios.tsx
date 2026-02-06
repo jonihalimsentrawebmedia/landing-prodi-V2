@@ -21,7 +21,7 @@ AxiosClient.interceptors.request.use(
     const origin =
       host === 'localhost:3000' ||
       host === '192.168.20.83:3000' ||
-      host === 'landing-prodi.vercel.app'
+      host === 'landing-prodi-v2.vercel.app'
         ? 'tradis-bi.stain-madina.ac.id'
         : host
 
